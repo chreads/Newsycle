@@ -33,7 +33,7 @@ class EntityAnalysis:
     def initialize(self, descriptions):
         stopwords = ["America", "U.S.", "the United States", "US", \
                      "American"]
-        for doc in nlp.pipe(descriptions):
+        for doc in nlp.pipe(descriptions, disable=['tagger', 'parser']):
             for ent in doc.ents:
                 if ent.text in stopwords:
                     continue
